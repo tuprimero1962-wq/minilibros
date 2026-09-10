@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minilibros - Realeza Oscura</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f0f1a 100%);
+            color: #e8d5b7;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 30px;
+            background: linear-gradient(135deg, #1a1510 0%, #2a2015 100%);
+            border-radius: 20px;
+            border: 3px solid #c9a554;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, #c9a554, transparent);
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, #c9a554, transparent);
+        }
+        
+        .crown {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2em;
+            color: #c9a554;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1em;
+            color: #a89070;
+            font-style: italic;
+        }
+        
+        .book-card {
+            background: linear-gradient(135deg, #1a1510 0%, #0f0d0a 100%);
+            border-radius: 15px;
+            border: 2px solid #c9a554;
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(201, 165, 84, 0.3);
+        }
+        
+        .book-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5em;
+            color: #c9a554;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .book-description {
+            text-align: center;
+            color: #b8a890;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        
+        .download-btn {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 18px 40px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #0a0a0f;
+            background: linear-gradient(135deg, #c9a554 0%, #e8c96a 50%, #c9a554 100%);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(201, 165, 84, 0.4);
+            letter-spacing: 2px;
+        }
+        
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(201, 165, 84, 0.6);
+            background: linear-gradient(135deg, #d4b060 0%, #f0d878 50%, #d4b060 100%);
+        }
+        
+        .download-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .btn-icon {
+            margin-right: 10px;
+        }
+        
+        .coming-soon {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        
+        .coming-soon .download-btn {
+            background: linear-gradient(135deg, #555 0%, #666 50%, #555 100%);
+            box-shadow: none;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            border-top: 2px solid #c9a554;
+        }
+        
+        .footer p {
+            color: #a89070;
+            font-size: 0.95em;
+        }
+        
+        .footer .channel-name {
+            color: #c9a554;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+        }
+        
+        .ornament {
+            text-align: center;
+            font-size: 1.5em;
+            color: #c9a554;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.6em;
+            }
+            
+            .book-title {
+                font-size: 1.3em;
+            }
+            
+            .download-btn {
+                font-size: 1.1em;
+                padding: 15px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="header">
+            <span class="crown">👑</span>
+            <h1>MINILIBROS</h1>
+            <div class="subtitle">Realeza Oscura No fue X. Fue Y</div>
+        </div>
+        
+        <div class="ornament">✦ ✦ ✦</div>
+        
+        <div class="book-card">
+            <div class="book-title">👑 Isabel II del Reino Unido</div>
+            <p class="book-description">
+                La historia de la reina que gobernó durante siete décadas, 
+                desde su nacimiento en Mayfair hasta su último suspiro en Balmoral.
+            </p>
+            <a href="https://raw.githubusercontent.com/tuprimero1962-wq/minilibros/main/PDF%20ISABEL%20SEGUNDA%20DE%20INGLATERRA.pdf" 
+               class="download-btn" 
+               download>
+                <span class="btn-icon">⬇️</span>DESCARGAR MINILIBRO
+            </a>
+        </div>
+        
+        <div class="book-card coming-soon">
+            <div class="book-title">🌙 Próximamente...</div>
+            <p class="book-description">
+                Nuevos minilibros disponibles pronto. 
+                ¡Cada semana uno nuevo!
+            </p>
+            <div class="download-btn">
+                <span class="btn-icon">🔒</span>PRÓXIMAMENTE
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Minilibros digitales de <span class="channel-name">Realeza Oscura No fue X. Fue Y</span></p>
+            <p style="margin-top: 10px; font-size: 0.85em;">Para tu colección personal • Descarga gratuita</p>
+        </div>
+        
+    </div>
+</body>
+</html>
